@@ -23,6 +23,14 @@ JNIEXPORT jstring JNICALL Java_com_example_jnis_JniUtils_getString
 JNIEXPORT jint JNICALL Java_com_example_jnis_JniUtils_getAddResult
   (JNIEnv *, jclass, jint, jint);
 
+/*
+ * Class:     com_example_jnis_JniUtils
+ * Method:    encode
+ * Signature: (Ljava/lang/String;)Ljava/lang/String;
+ */
+JNIEXPORT jstring JNICALL Java_com_example_jnis_JniUtils_encode
+  (JNIEnv *, jclass, jstring);
+
 #ifdef __cplusplus
 }
 #endif
