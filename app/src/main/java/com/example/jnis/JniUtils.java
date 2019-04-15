@@ -8,4 +8,5 @@ public class JniUtils {
 
     public static native int getAddResult(int a,int b);
     public static native String encode(String msg);
+    public static native int[] changeToArray(int[] arr);
 }

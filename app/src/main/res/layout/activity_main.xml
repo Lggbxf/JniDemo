@@ -13,12 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/tv"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="70dp"
-        android:text="点我"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="6dp" />
-
+        android:text="点我" />
 
     <TextView
         android:id="@+id/tv"
@@ -26,8 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:text="Hello World!"
-        />
+        android:text="Hello World!" />
 
     <EditText
         android:id="@+id/et_msg"
@@ -39,5 +33,24 @@
         android:text="加密"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btn_change"
+        android:text="转换"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btn_paint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="美化" />
+
+    <ImageView
+        android:id="@+id/iv_photo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
 
 </LinearLayout>

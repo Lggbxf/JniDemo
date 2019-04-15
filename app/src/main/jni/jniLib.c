@@ -6,6 +6,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include <android/log.h>
+#define LOG_TAG "System.out"
+#define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__)
+#define LOGI(...) __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
+
+
 
 char *encode(char *s){
     char *p = s;
@@ -50,3 +56,35 @@ JNIEXPORT jstring JNICALL Java_com_example_jnis_JniUtils_encode
         free(cstr);
         return new_str;
     }
+
+    JNIEXPORT jintArray JNICALL Java_com_example_jnis_JniUtils_changeToArray
+      (JNIEnv *env, jobject obj, jintArray jarr){
+        //jsize       (*GetArrayLength)(JNIEnv*, jarray);
+        	jsize len= (*env)->GetArrayLength(env, jarr);
+        	jintArray new_arr=(*env)->NewIntArray(env,len);
+        	//jint*       (*GetIntArrayElements)(JNIEnv*, jintArray, jboolean*);
+        	jint * cint = (*env)->GetIntArrayElements(env, jarr, NULL);
+        	int i = 0;
+        	int j = 0;
+        	int temp = 0;
+
+        	//cint[i] <=> *(cint + i)
+
+        	for(i = 0;i < len - 1;i++){
+        		for(j = 0;j < len - i - 1;j++){
+        			if(cint[j] > cint[j + 1]){
+        				temp = cint[j];
+        				cint[j] = cint[j + 1];
+        				cint[j + 1] = temp;
+        			}
+
+        		}
+
+        	}
+        	for(i = 0;i<len;i++){
+        	    LOGD("*cint == %d",(*(cint+1)));
+        	}
+        	(*env)->ReleaseIntArrayElements(env,new_arr,cint,0);
+            return new_arr;
+
+      }

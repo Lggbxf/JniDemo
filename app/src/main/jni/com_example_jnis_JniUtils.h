@@ -31,6 +31,14 @@ JNIEXPORT jint JNICALL Java_com_example_jnis_JniUtils_getAddResult
 JNIEXPORT jstring JNICALL Java_com_example_jnis_JniUtils_encode
   (JNIEnv *, jclass, jstring);
 
+/*
+ * Class:     com_example_jnis_JniUtils
+ * Method:    changeToArray
+ * Signature: ([I)[I
+ */
+JNIEXPORT jintArray JNICALL Java_com_example_jnis_JniUtils_changeToArray
+  (JNIEnv *, jclass, jintArray);
+
 #ifdef __cplusplus
 }
 #endif
